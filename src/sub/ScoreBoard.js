@@ -20,7 +20,7 @@ const ScoreContainer = styled.div`
   text-align: center;
   background-color: #333;
   color: #fff;
-  padding: 10px;
+  padding: 1px 10px 10px 10px;
   border-radius: 10px;
   font-family: QuiverItal;
   font-size: 30px;
@@ -39,23 +39,27 @@ const ScoreBox = styled.div`
   flex: 1;
   text-align: center;
   padding: 10px;
-  width: 100%; /* Ocupa todo el ancho disponible */
+  min-width: 150px; /* Ancho mínimo para los ScoreBoxes */
   background-color: #444;
   border-radius: 5px;
   border: 5px solid transparent;
   animation: ${changeBorderColor} 3s infinite alternate;
 `;
 
+const ScoreText = styled.p`
+  margin: 1px 0; /* Ajusta el margen superior e inferior aquí */
+`;
+
 function ScoreBoard({ roundNumber, playerScore, computerScore }) {
   return (
     <ScoreContainer>
-      <p>ROUND 0{roundNumber}</p>
+      <ScoreText>ROUND 0{roundNumber}</ScoreText>
       <Scores>
         <ScoreBox>
-          <p>JUGADOR: {playerScore}</p>
+          <ScoreText>JUGADOR: {playerScore}</ScoreText>
         </ScoreBox>
         <ScoreBox>
-          <p>PC: {computerScore}</p>
+          <ScoreText>PC: {computerScore}</ScoreText>
         </ScoreBox>
       </Scores>
     </ScoreContainer>
