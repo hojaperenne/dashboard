@@ -13,10 +13,14 @@ const Title = styled.h1`
 `;
 
 const NameInput = styled.input`
-  height: 24px; /* Altura igual a la del botón */
-  width: 200px; /* Ancho proporcional al cambio de tamaño del botón */
-  padding: 5px; /* Espacio interno para el contenido */
-  font-size: 16px; /* Tamaño de fuente */
+  height: 24px;
+  width: 80%; /* Utiliza un ancho relativo para adaptarse a diferentes tamaños de pantalla */
+  max-width: 300px; /* Establece un ancho máximo para evitar que el input sea demasiado ancho */
+  padding: 5px;
+  font-size: 16px;
+  margin: 10px auto; /* Centra el input horizontalmente */
+  display: block; /* Hace que el input ocupe todo el ancho disponible */
+  text-transform: uppercase; /* Convierte el texto a mayúsculas */
 `;
 
 const Button = styled.button`
@@ -26,7 +30,8 @@ const Button = styled.button`
   border: none;
   padding: 10px 20px;
   cursor: pointer;
-  margin: 0 10px;
+  margin: 10px auto; /* Centra los botones horizontalmente */
+  display: block; /* Hace que los botones ocupen todo el ancho disponible */
 `;
 
 const ErrorMessage = styled.p`
@@ -36,22 +41,15 @@ const ErrorMessage = styled.p`
   margin-top: 10px;
 `;
 
-function PlayerOptions(props) {
+function PlayerOptions({ onNameConfirmed }) {
   const [nameInput, setNameInput] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
-  const handleNameChange = (event) => {
-    setNameInput(event.target.value);
-    // Limpia el mensaje de error cuando el usuario comienza a escribir
-    setErrorMessage('');
-  };
-
   const handleNameConfirmation = () => {
-    if (nameInput.trim() !== '') {
-      props.onNameConfirmed(nameInput);
-    } else {
-      // Establece el mensaje de error si el nombre está vacío
+    if (nameInput.trim() === '') {
       setErrorMessage('Por favor, ingresa tu nombre antes de jugar.');
+    } else {
+      onNameConfirmed(nameInput);
     }
   };
 
@@ -62,10 +60,9 @@ function PlayerOptions(props) {
         type="text"
         placeholder="Tu nombre"
         value={nameInput}
-        onChange={handleNameChange}
+        onChange={(e) => setNameInput(e.target.value)}
       />
       <Button onClick={handleNameConfirmation}>Confirmar</Button>
-      {/* Muestra el mensaje de error si existe */}
       {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
     </PlayerOptionsContainer>
   );

@@ -31,6 +31,7 @@ const Scores = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
   margin-bottom: 10px;
 `;
 
@@ -38,11 +39,11 @@ const ScoreBox = styled.div`
   flex: 1;
   text-align: center;
   padding: 10px;
-  width: 300px;
+  width: 100%; /* Ocupa todo el ancho disponible */
   background-color: #444;
   border-radius: 5px;
   border: 5px solid transparent;
-  animation: ${changeBorderColor} 3s infinite alternate; /* Aplica la animación de cambio de borde */
+  animation: ${changeBorderColor} 3s infinite alternate;
 `;
 
 function ScoreBoard({ roundNumber, playerScore, computerScore }) {

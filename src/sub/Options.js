@@ -7,25 +7,30 @@ import scissorsImage from '/workspace/practico3/src/resources/scissors.png';
 
 const OptionsContainer = styled.div`
   text-align: center;
+  margin-top: 20px; /* Añade margen superior para separar de otros elementos */
 `;
 
 const OptionImage = styled.img`
   width: 120px;
-  margin: 10px 20px;
+  margin: 10px; /* Ajusta el margen para un diseño más compacto */
   transition: transform 0.2s ease-in-out;
 
   &:hover {
     transform: scale(1.1);
   }
 `;
-const ChoiseImage = styled.img`
-  width: 100px;
-  margin: 10px 120px; /* Ajusta el valor de margen según tu preferencia */
-`;
+
 const ChoicesContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap; /* Permite que las opciones se envuelvan en pantallas pequeñas */
+  margin: 20px 0; /* Ajusta el margen superior e inferior */
+`;
+
+const ChoiseImage = styled.img`
+  width: 80px; /* Ajusta el tamaño de las imágenes de elección */
+  margin: 10px; /* Ajusta el margen para un diseño más compacto */
 `;
 
 function Options(props) {
