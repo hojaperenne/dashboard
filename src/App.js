@@ -48,17 +48,6 @@ function App() {
   const [round, setRound] = useState(1);
   const [winner, setWinner] = useState(null);
   const [showResults, setShowResults] = useState(false);
-  
-  const playWinSound = () => {
-    const audio = new Audio('/workspace/practico3/src/resources/sonido1.mp3'); // Reemplaza './sounds/win.mp3' con la ruta correcta de tu archivo de sonido de victoria del jugador.
-    audio.play();
-  };
-
-  // Función para reproducir el sonido de victoria de la PC
-  const playLoseSound = () => {
-    const audio = new Audio('/workspace/practico3/src/resources/sonido2.mp3'); // Reemplaza './sounds/lose.mp3' con la ruta correcta de tu archivo de sonido de victoria de la PC.
-    audio.play();
-  };
 
   useEffect(() => {
     if (playerScore === 3 || computerScore === 3) {
@@ -141,8 +130,6 @@ function App() {
                 <h2>
                   {winner === playerName ? '¡Has ganado!' : 'La PC ha ganado.'}
                 </h2>
-                {winner === playerName && playWinSound()} {/* Reproduce el sonido de victoria del jugador */}
-                {winner !== playerName && playLoseSound()} {/* Reproduce el sonido de victoria de la PC */}
                 <Button onClick={resetGame}>Reiniciar Partida</Button>
                 <Button onClick={goToNameInput}>Reiniciar Juego</Button>
               </div>
