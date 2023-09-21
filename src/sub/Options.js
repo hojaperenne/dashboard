@@ -51,6 +51,7 @@ function Options(props) {
         <div>
           <ChoicesContainer>
             <div>
+              {/* Muestra las imágenes de elección del jugador y la computadora */}
               <ChoiseImage
                 src={playerChoice === "rock" ? rockImage : playerChoice === "paper" ? paperImage : scissorsImage}
                 alt={playerChoice}
@@ -65,6 +66,7 @@ function Options(props) {
       )}
       <h2>Elige una opción:</h2>
       <div className="options-container">
+        {/* Muestra las opciones de juego y maneja la selección del jugador */}
         {options.map((option) => (
           <OptionImage
             key={option}

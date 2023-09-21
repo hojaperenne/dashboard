@@ -56,13 +56,16 @@ function PlayerOptions({ onNameConfirmed }) {
   return (
     <PlayerOptionsContainer>
       <Title>Ingresa tu nombre:</Title>
+      {/* Input para ingresar el nombre del jugador */}
       <NameInput
         type="text"
         placeholder="Tu nombre"
         value={nameInput}
         onChange={(e) => setNameInput(e.target.value)}
       />
+      {/* Botón para confirmar el nombre */}
       <Button onClick={handleNameConfirmation}>Confirmar</Button>
+      {/* Muestra un mensaje de error si el nombre está vacío */}
       {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
     </PlayerOptionsContainer>
   );

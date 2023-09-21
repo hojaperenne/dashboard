@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-import PlayerOptions from '/workspace/practico3/src/sub/PlayerOptions';
+// Importación de los componentes necesarios
+import PlayerOptions from '/workspace/practico3/src/sub/PlayerOptions'; // Importa el componente PlayerOptions
 import Options from '/workspace/practico3/src/sub/Options'; // Importa el componente Options
 import ScoreBoard from '/workspace/practico3/src/sub/ScoreBoard'; // Importa el componente ScoreBoard
 import Result from '/workspace/practico3/src/sub/Result'; // Importa el componente Result
 
+// Estilización del contenedor principal de la aplicación
 const AppContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -15,6 +17,7 @@ const AppContainer = styled.div`
   background-color: #ffea00;
 `;
 
+// Estilización del contenedor interior que contiene el contenido central
 const InnerContainer = styled.div`
   text-align: center;
   font-family: Arial, sans-serif;
@@ -24,10 +27,12 @@ const InnerContainer = styled.div`
   width: 90%; /* Porcentaje de ancho en pantallas medianas y grandes */
 `;
 
+// Estilización del título principal
 const Title = styled.h1`
   color: #333;
 `;
 
+// Estilización de los botones
 const Button = styled.button`
   background-color: #38761d;
   color: white;
@@ -39,31 +44,33 @@ const Button = styled.button`
 `;
 
 function App() {
-  const [showTitle, setShowTitle] = useState(true);
-  const [playerName, setPlayerName] = useState('');
-  const [playerChoice, setPlayerChoice] = useState(null);
-  const [computerChoice, setComputerChoice] = useState(null);
-  const [playerScore, setPlayerScore] = useState(0);
-  const [computerScore, setComputerScore] = useState(0);
-  const [round, setRound] = useState(1);
-  const [winner, setWinner] = useState(null);
-  const [showResults, setShowResults] = useState(false);
+  const [showTitle, setShowTitle] = useState(true); // Estado para mostrar u ocultar el título
+  const [playerName, setPlayerName] = useState(''); // Estado para almacenar el nombre del jugador
+  const [playerChoice, setPlayerChoice] = useState(null); // Estado para la elección del jugador
+  const [computerChoice, setComputerChoice] = useState(null); // Estado para la elección de la PC
+  const [playerScore, setPlayerScore] = useState(0); // Estado para el puntaje del jugador
+  const [computerScore, setComputerScore] = useState(0); // Estado para el puntaje de la PC
+  const [round, setRound] = useState(1); // Estado para el número de ronda
+  const [winner, setWinner] = useState(null); // Estado para el ganador
+  const [showResults, setShowResults] = useState(false); // Estado para mostrar u ocultar los resultados
 
   useEffect(() => {
+    // Efecto que se ejecuta cuando cambia el puntaje del jugador, el puntaje de la PC, la ronda o el nombre del jugador
     if (playerScore === 3 || computerScore === 3) {
       let winner;
       if (playerScore > computerScore) {
-        winner = playerName;
+        winner = playerName; // El jugador gana
       } else if (computerScore > playerScore) {
-        winner = 'La PC';
+        winner = 'La PC'; // La PC gana
       } else {
-        winner = 'Empate';
+        winner = 'Empate'; // Empate
       }
-      setWinner(winner);
+      setWinner(winner); // Establece el ganador
     }
   }, [playerScore, computerScore, round, playerName]);
 
   const resetGame = () => {
+    // Función para reiniciar el juego
     setPlayerScore(0);
     setComputerScore(0);
     setRound(1);
@@ -74,6 +81,7 @@ function App() {
   };
 
   const goToNameInput = () => {
+    // Función para volver a la pantalla de ingreso de nombre
     setPlayerName('');
     setPlayerChoice(null);
     setComputerChoice(null);
@@ -86,36 +94,39 @@ function App() {
   };
 
   const handleNameConfirmed = (name) => {
+    // Función para confirmar el nombre del jugador
     setPlayerName(name.toUpperCase()); // Almacena el nombre en mayúsculas
-    setShowTitle(false); // Ocultar el título al confirmar el nombre
+    setShowTitle(false); // Oculta el título al confirmar el nombre
   };
 
   const handleOptionSelection = (playerOption, computerOption) => {
+    // Función para manejar la selección de opciones (piedra, papel o tijeras)
     setPlayerChoice(playerOption);
     setComputerChoice(computerOption);
 
     const result = determineWinner(playerOption, computerOption);
     if (result === 'Ganaste') {
-      setPlayerScore(playerScore + 1);
+      setPlayerScore(playerScore + 1); // Incrementa el puntaje del jugador
     } else if (result === 'La PC ganó') {
-      setComputerScore(computerScore + 1);
+      setComputerScore(computerScore + 1); // Incrementa el puntaje de la PC
     }
 
-    setRound(round + 1);
-    setShowResults(true);
+    setRound(round + 1); // Incrementa el número de ronda
+    setShowResults(true); // Muestra los resultados
   };
 
   const determineWinner = (playerOption, computerOption) => {
+    // Función para determinar al ganador de una ronda
     if (
       (playerOption === 'rock' && computerOption === 'scissors') ||
       (playerOption === 'scissors' && computerOption === 'paper') ||
       (playerOption === 'paper' && computerOption === 'rock')
     ) {
-      return 'Ganaste';
+      return 'Ganaste'; // El jugador gana
     } else if (playerOption === computerOption) {
-      return 'Empate';
+      return 'Empate'; // Empate
     } else {
-      return 'La PC ganó';
+      return 'La PC ganó'; // La PC gana
     }
   };
 

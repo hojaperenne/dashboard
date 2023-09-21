@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const ResultContainer = styled.div`
   text-align: center;
-  margin-top: 20px;
+  margin-top: 20px; /* Margen superior para separar el resultado de las opciones de juego */
 `;
 
 const ResultText = styled.h2`
@@ -12,6 +12,7 @@ const ResultText = styled.h2`
 `;
 
 function Result({ playerChoice, computerChoice }) {
+  // Función para determinar el ganador de la ronda
   const determineWinner = () => {
     if (
       (playerChoice === 'rock' && computerChoice === 'scissors') ||
@@ -30,11 +31,11 @@ function Result({ playerChoice, computerChoice }) {
     }
   };
 
-  const result = determineWinner();
+  const result = determineWinner(); // Determina el resultado de la ronda
 
   return (
     <ResultContainer>
-      <ResultText>{result}</ResultText>
+      <ResultText>{result}</ResultText> {/* Muestra el resultado de la ronda en pantalla */}
     </ResultContainer>
   );
 }

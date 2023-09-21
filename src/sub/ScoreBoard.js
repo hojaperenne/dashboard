@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
+// Definición de una animación llamada 'changeBorderColor' utilizando keyframes
 const changeBorderColor = keyframes`
   0% {
     border-image-slice: 1;
@@ -16,6 +17,7 @@ const changeBorderColor = keyframes`
   }
 `;
 
+// Estilización del contenedor principal del marcador
 const ScoreContainer = styled.div`
   text-align: center;
   background-color: #333;
@@ -24,9 +26,10 @@ const ScoreContainer = styled.div`
   border-radius: 10px;
   font-family: QuiverItal;
   font-size: 30px;
-  color: #00ff00;
+  color: #00ff00; /* Establece el color de texto en verde */
 `;
 
+// Estilización del contenedor que alberga los puntajes de jugador y PC
 const Scores = styled.div`
   display: flex;
   justify-content: space-between;
@@ -35,6 +38,7 @@ const Scores = styled.div`
   margin-bottom: 10px;
 `;
 
+// Estilización de los cuadros de puntaje individuales
 const ScoreBox = styled.div`
   flex: 1;
   text-align: center;
@@ -43,9 +47,10 @@ const ScoreBox = styled.div`
   background-color: #444;
   border-radius: 5px;
   border: 5px solid transparent;
-  animation: ${changeBorderColor} 3s infinite alternate;
+  animation: ${changeBorderColor} 3s infinite alternate; /* Aplica la animación 'changeBorderColor' */
 `;
 
+// Estilización del texto de puntaje
 const ScoreText = styled.p`
   margin: 1px 0; /* Ajusta el margen superior e inferior aquí */
 `;
