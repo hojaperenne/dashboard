@@ -1,20 +1,18 @@
 {
   "files": {
     "main.css": "/practico3/static/css/main.e6c13ad2.css",
-    "main.js": "/practico3/static/js/main.5665673a.js",
+    "main.js": "/practico3/static/js/main.9fb2a3d6.js",
     "static/js/787.f9640105.chunk.js": "/practico3/static/js/787.f9640105.chunk.js",
-    "static/media/sonido1.mp3": "/practico3/static/media/sonido1.9afc3209ffdd0e5a0e84.mp3",
-    "static/media/sonido2.mp3": "/practico3/static/media/sonido2.62dc3d8b64e7a63a6fec.mp3",
     "static/media/paper.png": "/practico3/static/media/paper.6da0a813699b79612599.png",
     "static/media/scissors.png": "/practico3/static/media/scissors.1e63b0c1c802d9d851d0.png",
     "static/media/rock.png": "/practico3/static/media/rock.7ee747afda743db05f01.png",
     "index.html": "/practico3/index.html",
     "main.e6c13ad2.css.map": "/practico3/static/css/main.e6c13ad2.css.map",
-    "main.5665673a.js.map": "/practico3/static/js/main.5665673a.js.map",
+    "main.9fb2a3d6.js.map": "/practico3/static/js/main.9fb2a3d6.js.map",
     "787.f9640105.chunk.js.map": "/practico3/static/js/787.f9640105.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.5665673a.js"
+    "static/js/main.9fb2a3d6.js"
   ]
 }
