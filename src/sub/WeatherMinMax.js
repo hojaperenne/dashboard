@@ -2,28 +2,34 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const WeatherMinMaxContainer = styled.div`
-  background-color: #fff;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dos columnas */
+  grid-template-rows: auto auto; /* Dos filas con altura automática */
+  gap: 10px; /* Espacio entre elementos */
+  align-items: center;
   border: 1px solid #ccc;
   border-radius: 5px;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 `;
 
 const TemperatureLabel = styled.div`
+  grid-column: 1 / span 2; /* Ocupa ambas columnas */
+  text-align: center;
   font-size: 18px;
   font-weight: bold;
-  margin-bottom: 10px;
 `;
 
-const TemperatureValues = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
-
-const TemperatureValue = styled.div`
-  flex: 1;
+const MinTemperature = styled.div`
+  grid-row: 2 / 3; /* Fila 2 */
+  grid-column: 1 / 2; /* Columna 1 */
   text-align: center;
-  font-size: 24px;
+  font-size: 16px;
+`;
+
+const MaxTemperature = styled.div`
+  grid-row: 2 / 3; /* Fila 2 */
+  grid-column: 2 / 3; /* Columna 2 */
+  text-align: center;
+  font-size: 16px;
 `;
 
 class WeatherMinMax extends Component {
@@ -35,11 +41,9 @@ class WeatherMinMax extends Component {
 
     return (
       <WeatherMinMaxContainer>
-        <TemperatureLabel>Temperature Min/Max</TemperatureLabel>
-        <TemperatureValues>
-          <TemperatureValue>Min: {/*{minTemperature}*/}11°C</TemperatureValue>
-          <TemperatureValue>Max: {/*{maxTemperature}*/}22°C</TemperatureValue>
-        </TemperatureValues>
+        <TemperatureLabel>Temperature</TemperatureLabel>
+        <MinTemperature>Min: {/*{minTemperature}*/}11°C</MinTemperature>
+        <MaxTemperature>Max: {/*{maxTemperature}*/}22°C</MaxTemperature>
       </WeatherMinMaxContainer>
     );
   }

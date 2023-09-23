@@ -9,6 +9,7 @@ const WeatherDetailsContainer = styled.div`
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* Tres columnas */
+  grid-auto-rows: minmax(50px, auto); /* Altura automática */
   gap: 10px; /* Espacio entre elementos */
 `;
 
@@ -41,8 +42,6 @@ class WeatherDetails extends Component {
 
     return (
       <WeatherDetailsContainer>
-        <h2>Weather Details</h2>
-        <DetailContainer>
           <DetailContainer>
             <div>UV Index:</div>
             <div>{/*{uvIndex}*/}6</div>
@@ -68,7 +67,6 @@ class WeatherDetails extends Component {
             <div>{/*{sunriseTime}*/}6:36 A.M.</div>
             <div>{/*{sunsetTime}*/}19:00 P.M.</div>
           </DetailContainer>
-        </DetailContainer>
       </WeatherDetailsContainer>
     );
   }
